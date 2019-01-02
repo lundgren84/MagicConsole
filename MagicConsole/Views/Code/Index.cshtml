@@ -1,0 +1,63 @@
+﻿@model MagicConsole.features.Code.Models.CodeViewModel
+
+@if (Model.IsAjaxRequest)
+{
+    <script src="~/assets/vendor/modernizr/modernizr.js"></script>
+}
+
+
+@{
+    ViewBag.Title = "Home Page";
+}
+
+
+@{
+    <section class="panel">
+        <header class="panel-heading">
+            <div class="panel-actions">
+                <a href="#" class="fa fa-caret-down"></a>
+                @*<a href="#" class="fa fa-times"></a>*@
+            </div>
+
+            <h2 class="panel-title">Code Editor</h2>
+        </header>
+        <div class="panel-body">
+            <form class="form-horizontal" action="#">
+                <div class="form-group">
+                    <label class="col-md-2 control-label" for="textareaDefault">Code Editor</label>
+                    <div class="col-md-10">
+                        <textarea class="form-control" rows="10" id="codemirror_js_code" name="code_js" data-plugin-codemirror data-plugin-options='{ "mode": "text/javascript" }'>
+				    </textarea>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-md-2 control-label" for="textareaDefault">Javascript Editor</label>
+                    <div class="col-md-10">
+                        <textarea class="form-control" rows="10" id="codemirror_js_code" name="code_js" data-plugin-codemirror data-plugin-options='{ "mode": "text/javascript" }'>
+						function findSequence(goal) {
+						  function find( start, history ) {
+						    if (start === goal) {
+						      return history;
+						    } else if ( start > goal ) {
+						      return null;
+						    } else {
+						      return find(start + 5, "(" + history + " + 5)") || find(start * 3, "(" + history + " * 3)");
+						    }
+						
+						    return find(1, "1");
+						  }
+						}</textarea>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </section>
+}
+
+@if (Model.IsAjaxRequest)
+{
+    @Scripts.Render("~/bundles/vendor")
+    @Scripts.Render("~/bundles/codeeditor")
+    @Scripts.Render("~/bundles/theme")
+}
