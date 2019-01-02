@@ -1,0 +1,77 @@
+﻿@model MagicConsole.features.Authentication.Models.LoginFormModel
+
+@{
+    ViewBag.Title = "Login";
+    Layout = "~/Views/Shared/_LayoutAuth.cshtml";
+}
+
+<section class="body-sign">
+    <div class="center-sign">
+        <a href="/" class="logo pull-left">
+            <img src="~/assets/images/logo.png" height="54" alt="Porto Admin" />
+        </a>
+
+        <div class="panel panel-sign">
+            <div class="panel-title-sign mt-xl text-right">
+                <h2 class="title text-uppercase text-bold m-none"><i class="fa fa-user mr-xs"></i>Sign In</h2>
+                <h2 class="title text-uppercase text-bold m-none"><i class="fa fa-user mr-xs"></i>@Html.ActionLink("Register", "Register")</h2>
+            </div>
+            <div class="panel-body">
+                @using (Html.BeginForm("Login", "Authentication", FormMethod.Post, null))
+                {
+                    @Html.AntiForgeryToken()
+                    @Html.ValidationSummary(true)
+
+                    <div class="form-group mb-lg">
+                        @Html.LabelFor(model => model.Username)
+                        <div class="input-group input-group-icon">                         
+                            @Html.EditorFor(model => model.Username, new { htmlAttributes = new { type = "text", @class = "form-control input-lg", autocomplete = "username" } })
+                            <span class="input-group-addon">
+                                <span class="icon icon-lg">
+                                    <i class="fa fa-user"></i>
+                                </span>
+                            </span>
+                        </div>
+                        @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger", type = "text" })
+                    </div>
+
+                    <div class="form-group mb-lg">
+                        <div class="clearfix">
+                            @Html.LabelFor(model => model.Password)
+                            @Html.ActionLink("Lost Password?", "ForgotPassword")
+                        </div>
+                        <div class="input-group input-group-icon">
+                            @Html.EditorFor(model => model.Password, new { htmlAttributes = new { type = "password", @class = "form-control input-lg", autocomplete = "password" } })
+                            <span class="input-group-addon">
+                                <span class="icon icon-lg">
+                                    <i class="fa fa-lock"></i>
+                                </span>
+                            </span>
+                        </div>
+                        @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger", type = "text" })
+                    </div>
+
+                    <div class="row">
+                        <div class="col-sm-8">
+                            <div class="checkbox-custom checkbox-default">
+                                <input id="RememberMe" name="rememberme" type="checkbox" />
+                                <label for="RememberMe">Remember Me</label>
+                            </div>
+                        </div>
+                        <div class="col-sm-4 text-right">
+                            <button type="submit" class="btn btn-primary hidden-xs">Sign In</button>
+                            <button type="submit" class="btn btn-primary btn-block btn-lg visible-xs mt-lg">Sign In</button>
+                        </div>
+                    </div>
+
+                    <p class="text-center">
+                        Don't have an account yet? @Html.ActionLink("Sign Up!", "Register")
+                    </p>
+                }
+            </div>
+        </div>
+
+        <p class="text-center text-muted mt-md mb-md">&copy; Copyright 2018. All rights reserved. Template by <a href="https://colorlib.com">Colorlib</a>.</p>
+    </div>
+</section>
+

@@ -184,19 +184,28 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="App_Start\Startup1.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="DbLayer\Dtos\ArticleBlockEntity.cs" />
     <Compile Include="DbLayer\Dtos\ArticleEntity.cs" />
+    <Compile Include="DbLayer\Dtos\CategoryEntity.cs" />
     <Compile Include="DbLayer\LundgrenDbContext.cs" />
     <Compile Include="Enums.cs" />
+    <Compile Include="features\Authentication\AuthenticationController.cs" />
+    <Compile Include="features\Authentication\Models\ChangePasswordFormModel.cs" />
+    <Compile Include="features\Authentication\Models\ForgotPasswordFormModel.cs" />
+    <Compile Include="features\Authentication\Models\LoginFormModel.cs" />
+    <Compile Include="features\Authentication\Models\RegisterFormModel.cs" />
     <Compile Include="features\Code\CodeController.cs" />
     <Compile Include="features\Code\Models\CodeViewModel.cs" />
     <Compile Include="features\Home\HomeController.cs" />
+    <Compile Include="features\Home\Models\HomeViewModel.cs" />
     <Compile Include="features\TimeReport\TimeReportController.cs" />
     <Compile Include="features\Urls\UrlsController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="IdentityDatabaseContext.cs" />
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -3929,6 +3938,11 @@
     <Content Include="Views\Code\Index.cshtml" />
     <Content Include="Views\Shared\PlaceHolders\_FormBasic.cshtml" />
     <Content Include="Views\TimeReport\Index.cshtml" />
+    <Content Include="Views\Authentication\Register.cshtml" />
+    <Content Include="Views\Authentication\Login.cshtml" />
+    <Content Include="Views\Shared\_LayoutAuth.cshtml" />
+    <Content Include="Views\Authentication\ForgotPassword.cshtml" />
+    <Content Include="Views\Home\_Categories.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

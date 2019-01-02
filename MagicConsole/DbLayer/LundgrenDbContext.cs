@@ -14,5 +14,6 @@ namespace MagicConsole.DbLayer
 
         public DbSet<ArticleEntity> Articles { get; set; }
         public DbSet<ArticleBlockEntity> ArticleBlocks { get; set; }
+        public DbSet<CategoryEntity> Categories { get; set; }
     }
 }

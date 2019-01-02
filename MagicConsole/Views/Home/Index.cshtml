@@ -1,4 +1,6 @@
-﻿@{
+﻿@model MagicConsole.features.Home.Models.HomeViewModel
+
+@{
     ViewBag.Title = "Home Page";
 }
 
@@ -7,19 +9,19 @@
     <header class="panel-heading">
         <div class="panel-actions">
             <a href="#" class="fa fa-caret-down"></a>
-            @*<a href="#" class="fa fa-times"></a>*@
+            <a href="#" class="fa fa-times"></a>
         </div>
 
-        <h2 class="panel-title">DashBoard</h2>
+        <h2 class="panel-title">Overview</h2>
     </header>
     <div class="panel-body">
 
-
+  
     </div>
 </section>
 
+@{
+    Html.RenderPartial("_Categories");
+}
 
-
-@Scripts.Render("~/bundles/vendor")
 @Scripts.Render("~/bundles/codeeditor")
-@Scripts.Render("~/bundles/theme")

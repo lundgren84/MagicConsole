@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using MagicConsole.DbLayer;
+using MagicConsole.features.Home.Models;
 
 namespace MagicConsole.features.Home
 {
@@ -10,47 +12,36 @@ namespace MagicConsole.features.Home
     {
         public ActionResult Index()
         {
+            var model = GetViewModel();
+
             if (Request.IsAjaxRequest())
             {
-                return PartialView();
+                return PartialView("Index", model);
             }
-            return View();
+            return View("Index", model);
         }
 
         public ActionResult DashBoard()
         {
+            var model = GetViewModel();
+
             if (Request.IsAjaxRequest())
             {
-                return PartialView("Index");
+                return PartialView("Index", model);
             }
-            return View("Index");
+            return View("Index", model);
         }
 
-        public ActionResult Urls()
+        private HomeViewModel GetViewModel()
         {
-            if (Request.IsAjaxRequest())
-            {
-                return PartialView();
-            }
-            return View();
-        }
+            var model = new HomeViewModel();
 
-        public ActionResult Code()
-        {
-            if (Request.IsAjaxRequest())
+            using (var ctx = new LundgrenDbContext())
             {
-                return PartialView();
+                model.Categories = ctx.Categories.ToList();
             }
-            return View();
-        }
 
-        public ActionResult TimeReport()
-        {
-            if (Request.IsAjaxRequest())
-            {
-                return PartialView();
-            }
-            return View();
+            return model;
         }
     }
 }
