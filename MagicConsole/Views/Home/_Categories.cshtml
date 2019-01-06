@@ -58,3 +58,11 @@
         </table>
     </div>
 </section>
+
+@{
+    if (ViewBag.isAjaxRequest)
+    {
+        @Scripts.Render("~/bundles/vendor")
+        @Scripts.Render("~/bundles/theme")
+    }
+}

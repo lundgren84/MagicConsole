@@ -676,7 +676,12 @@
     </div>
 </section>
 
+@{
+    if (ViewBag.isAjaxRequest)
+    {
+        @Scripts.Render("~/bundles/vendor")
+        @Scripts.Render("~/bundles/theme")
+    }
+}
 
-@Scripts.Render("~/bundles/vendor")
-@Scripts.Render("~/bundles/theme")
 

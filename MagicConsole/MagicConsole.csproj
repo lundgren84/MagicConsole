@@ -201,7 +201,7 @@
     <Compile Include="features\Home\HomeController.cs" />
     <Compile Include="features\Home\Models\HomeViewModel.cs" />
     <Compile Include="features\TimeReport\TimeReportController.cs" />
-    <Compile Include="features\Urls\UrlsController.cs" />
+    <Compile Include="features\BigTable\BigTableController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -2031,6 +2031,7 @@
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\js\editableTable.js" />
     <Content Include="Scripts\js\navigation.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\respond.js" />
@@ -3934,7 +3935,7 @@
     <Content Include="Views\Shared\PlaceHolders\_Header.cshtml" />
     <Content Include="Views\Shared\PlaceHolders\_EditableTable.cshtml" />
     <Content Include="Views\Shared\PlaceHolders\_CodeTextarea.cshtml" />
-    <Content Include="Views\Urls\Index.cshtml" />
+    <Content Include="Views\BigTable\Index.cshtml" />
     <Content Include="Views\Code\Index.cshtml" />
     <Content Include="Views\Shared\PlaceHolders\_FormBasic.cshtml" />
     <Content Include="Views\TimeReport\Index.cshtml" />

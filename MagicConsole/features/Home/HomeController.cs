@@ -10,11 +10,14 @@ namespace MagicConsole.features.Home
 {
     public class HomeController : Controller
     {
+
         public ActionResult Index()
         {
             var model = GetViewModel();
+            var isAjaxRequest = Request.IsAjaxRequest();
+            ViewBag.isAjaxRequest = isAjaxRequest;
 
-            if (Request.IsAjaxRequest())
+            if (isAjaxRequest)
             {
                 return PartialView("Index", model);
             }
@@ -24,8 +27,10 @@ namespace MagicConsole.features.Home
         public ActionResult DashBoard()
         {
             var model = GetViewModel();
+            var isAjaxRequest = Request.IsAjaxRequest();
+            ViewBag.isAjaxRequest = isAjaxRequest;
 
-            if (Request.IsAjaxRequest())
+            if (isAjaxRequest)
             {
                 return PartialView("Index", model);
             }

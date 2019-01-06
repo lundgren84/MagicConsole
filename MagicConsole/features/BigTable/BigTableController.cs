@@ -4,13 +4,16 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
-namespace MagicConsole.features.Urls
+namespace MagicConsole.features.BigTable
 {
-    public class UrlsController : Controller
+    public class BigTableController : Controller
     {
         public ActionResult Index()
         {
-            if (Request.IsAjaxRequest())
+            var isAjaxRequest = Request.IsAjaxRequest();
+            ViewBag.isAjaxRequest = isAjaxRequest;
+
+            if (isAjaxRequest)
             {
                 return PartialView();
             }
